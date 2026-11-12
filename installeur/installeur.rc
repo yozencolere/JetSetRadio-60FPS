@@ -6,8 +6,8 @@ IDR_LISEZMOI  RCDATA "lisezmoi_utf8bom.txt"
 1 RT_MANIFEST "installeur.manifest"
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,0
- PRODUCTVERSION 1,0,0,0
+ FILEVERSION 1,0,1,0
+ PRODUCTVERSION 1,0,1,0
  FILEOS 0x40004
  FILETYPE 0x1
 BEGIN
@@ -17,8 +17,8 @@ BEGIN
     BEGIN
       VALUE "FileDescription", "Installeur Jet Set Radio 60 FPS"
       VALUE "ProductName", "Jet Set Radio 60 FPS"
-      VALUE "FileVersion", "1.0"
-      VALUE "ProductVersion", "1.0"
+      VALUE "FileVersion", "1.0.1"
+      VALUE "ProductVersion", "1.0.1"
     END
   END
   BLOCK "VarFileInfo"

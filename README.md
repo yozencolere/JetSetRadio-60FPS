@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest"><b>⬇️ Télécharger la version 1.0</b></a>
+  <a href="https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest"><b>⬇️ Télécharger la version 1.0.1</b></a>
   &nbsp;·&nbsp;
   <a href="https://yozencolere.github.io/JetSetRadio-60FPS/">Page de présentation</a>
 </p>
@@ -34,7 +34,7 @@
 
 ## Installation
 
-1. Téléchargez **`Installer-JSR-60-FPS-v1.0.exe`** dans la [page de la version](https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest).
+1. Téléchargez **`Installer-JSR-60-FPS-v1.0.1.exe`** dans la [page de la version](https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest).
 2. Fermez le jeu, puis lancez l'installeur.
 3. Il trouve Jet Set Radio tout seul (Steam). Cliquez sur **OK**.
 4. Lancez le jeu normalement depuis Steam. C'est tout !
