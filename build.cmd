@@ -10,5 +10,5 @@ if not defined VCVARS32 ( echo Visual Studio introuvable : definir VCVARS32. & e
 call "%VCVARS32%" >nul || exit /b 1
 cd /d "%~dp0"
 if not exist bin mkdir bin
-cl /nologo /O2 /Oy- /D_CRT_SECURE_NO_WARNINGS /MT /EHsc /std:c++17 /W3 /LD src\d3d9_proxy.cpp /Fo:bin\ /Fe:bin\d3d9.dll /link /DEF:src\d3d9.def user32.lib || exit /b 2
+cl /nologo /O2 /Oy- /D_CRT_SECURE_NO_WARNINGS /MT /EHsc /std:c++17 /W3 /LD src\d3d9_proxy.cpp /Fo:bin\ /Fe:bin\d3d9.dll /link /DEF:src\d3d9.def user32.lib winmm.lib gdi32.lib || exit /b 2
 exit /b 0

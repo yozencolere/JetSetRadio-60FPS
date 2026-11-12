@@ -13,14 +13,21 @@ Ce que fait le mod
 - Filtrage anisotrope x16 : plus de scintillement des textures au loin.
 - Corrections de défauts du jeu d'origine :
   * voile blanc sur les tags selon l'angle de la caméra (ordre de dessin des couches du tag) ;
-  * bâtiments qui surgissent au loin ou sur les bords de l'écran (blocs de ville et angle de vue 4:3).
+  * bâtiments qui surgissent au loin ou sur les bords de l'écran (blocs de ville et angle de vue 4:3) ;
+  * panneaux des façades éclairés selon la caméra, texte « APPUIE SUR START » mal détouré,
+    bandes grises et flash au démarrage.
+- Couleurs plus vives (vibrance et saturation), réglables avec F11.
+- Ombre du personnage interpolée à 60 FPS, menus nets, logo « blit » du démarrage supprimé.
+- Résolution plus grande que celles de l'écran (supersampling) : plein écran sans bordure au lieu
+  d'un plantage ; fréquence ajustée si celle des réglages n'existe pas sur l'écran.
 
 Touches en jeu
 --------------
   F1 : flou de mouvement coupé
   F2 : flou léger
-  F3 : flou intermédiaire
-  F4 : flou fort (réglage par défaut)
+  F3 : flou intermédiaire (réglage par défaut)
+  F4 : flou fort
+  F11 : couleurs (coupé / léger / moyen par défaut / fort)
   F8 : couper / remettre tout le mod (pour comparer avec le jeu d'origine)
 
 Désinstallation

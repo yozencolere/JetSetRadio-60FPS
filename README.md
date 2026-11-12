@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest"><b>⬇️ Télécharger la version 1.0.1</b></a>
+  <a href="https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest"><b>⬇️ Télécharger la version 1.1.0</b></a>
   &nbsp;·&nbsp;
   <a href="https://yozencolere.github.io/JetSetRadio-60FPS/">Page de présentation</a>
 </p>
@@ -26,15 +26,32 @@
 | 🔍 **Textures nettes au loin** | Filtrage anisotrope x16 : fini le scintillement des textures lointaines. |
 | 🏙️ **Plus de bâtiments qui surgissent** | Les bâtiments lointains et ceux du bord de l'écran sont affichés en permanence. |
 | 🎨 **Tags corrigés** | Plus de voile blanc sur les graffitis selon l'angle de la caméra. |
+| 🌈 **Couleurs plus vives** *(nouveau)* | Vibrance et saturation renforcées, surtout sur les couleurs ternes. 4 niveaux avec **F11**. |
+| 👤 **Ombre fluide** *(nouveau)* | L'ombre du personnage suit aussi le 60 FPS, sans traînées. |
+| 🖼️ **Image propre** *(nouveau)* | Plus de décor qui clignote aux changements de plan, plus de bandes sur les bords de l'écran, panneaux des façades éclairés correctement, menus nets. |
+| 🚀 **Démarrage plus court** *(nouveau)* | Le logo « blit » du lancement est supprimé, sans flash à l'écran suivant. |
 
 <p align="center">
   <img src="docs/images/saut.jpg" width="49%">
   <img src="docs/images/tag.jpg" width="49%">
 </p>
 
+## Nouveautés de la version 1.1.0
+
+- 🌈 **Couleurs plus vives**, réglables avec **F11** (le jeu démarre au niveau moyen).
+- 👤 **L'ombre du personnage passe à 60 FPS** elle aussi, sans traînées ni éléments manquants.
+- 🎬 **Plus de clignotements** : décor et trottoirs aux changements de plan, ombre sous le flou de mouvement, bandes claires sur les façades.
+- 🏘️ **Deuxième quartier complet** : plus de bâtiments qui surgissent au loin dans le quartier au soleil couchant.
+- 💡 **Panneaux des façades** : ils gardent l'ombre de leur bâtiment au lieu de s'allumer selon la caméra.
+- 📋 **Menus nets** : le menu Start et le menu principal ne sont plus floutés.
+- 🐞 **Plantage corrigé** au retour du menu Start vers le jeu.
+- 🚀 **Démarrage plus court** : logo « blit » supprimé, plus de flash ni de bandes grises pendant la vidéo SEGA.
+- 🖥️ **Supersampling** : si la résolution choisie (ex. 3840×2160) n'existe pas sur l'écran, le jeu s'ouvre en plein écran sans bordure au lieu de planter ; fréquence ajustée automatiquement si celle des réglages n'est pas disponible.
+- ✨ Texte « APPUIE SUR START » nettoyé, flou de mouvement **intermédiaire** par défaut.
+
 ## Installation
 
-1. Téléchargez **`Installer-JSR-60-FPS-v1.0.1.exe`** dans la [page de la version](https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest).
+1. Téléchargez **`Installer-JSR-60-FPS-v1.1.0.exe`** dans la [page de la version](https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest).
 2. Fermez le jeu, puis lancez l'installeur.
 3. Il trouve Jet Set Radio tout seul (Steam). Cliquez sur **OK**.
 4. Lancez le jeu normalement depuis Steam. C'est tout !
@@ -51,8 +68,9 @@
 |:---:|---|
 | **F1** | Flou de mouvement coupé |
 | **F2** | Flou léger |
-| **F3** | Flou intermédiaire |
-| **F4** | Flou fort *(par défaut)* |
+| **F3** | Flou intermédiaire *(par défaut)* |
+| **F4** | Flou fort |
+| **F11** | Couleurs : coupé → léger → moyen *(par défaut)* → fort |
 | **F8** | Couper / remettre tout le patch, pour comparer avec le jeu d'origine |
 
 ## Désinstallation
