@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jet Set Radio 60 FPS</title>
+<meta name="description" content="Patch pour Jet Set Radio sur Steam : 60 images par seconde, flou de mouvement, textures nettes et corrections. Installation en un clic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fond: #0f0f14; --carte: #1b1b24; --texte: #f4f4f6; --doux: #b8b8c6;
+    --jaune: #f5e400; --vert: #39d353; --rose: #ff2d95; --cyan: #22d3ee; --bord: #2c2c3a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--fond); color: var(--texte); font: 17px/1.6 Inter, system-ui, sans-serif; }
+  a { color: var(--cyan); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* en-tete */
+  header.hero { position: relative; min-height: 88vh; display: flex; align-items: flex-end; overflow: hidden; }
+  header.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(1.15); }
+  header.hero::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(15,15,20,.15) 0%, rgba(15,15,20,.35) 45%, var(--fond) 100%); }
+  .hero-txt { position: relative; z-index: 1; padding: 0 16px 56px; max-width: 1080px; margin: 0 auto; width: 100%; }
+  .badge { display: inline-block; font: 13px/1 Bungee, sans-serif; letter-spacing: .06em; background: var(--rose); color: #fff;
+    padding: 8px 12px; transform: rotate(-2deg); border-radius: 4px; }
+  h1 { font-family: Bungee, sans-serif; font-weight: 400; font-size: clamp(42px, 9vw, 104px); line-height: .95; margin: 18px 0 14px;
+    color: var(--jaune); text-shadow: 4px 4px 0 #1a7a2c, 8px 8px 0 rgba(0,0,0,.45); letter-spacing: .01em; }
+  h1 span { color: #fff; text-shadow: 4px 4px 0 var(--rose), 8px 8px 0 rgba(0,0,0,.45); }
+  .accroche { font-size: clamp(18px, 2.4vw, 23px); max-width: 640px; margin: 0 0 26px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.7); }
+  .boutons { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; text-decoration: none; padding: 15px 22px;
+    border-radius: 12px; transition: transform .15s ease; }
+  .btn:hover { transform: translateY(-2px) rotate(-1deg); }
+  .btn-principal { background: var(--jaune); color: #111; box-shadow: 5px 5px 0 var(--vert); }
+  .btn-second { background: rgba(255,255,255,.12); color: #fff; border: 2px solid rgba(255,255,255,.35); backdrop-filter: blur(4px); }
+  .petit { font-size: 14px; color: var(--doux); margin-top: 12px; }
+
+  /* sections */
+  section { padding: 64px 0 8px; }
+  h2 { font-family: Bungee, sans-serif; font-weight: 400; font-size: clamp(28px, 4.5vw, 42px); margin: 0 0 24px; color: #fff; }
+  h2::before { content: ""; display: inline-block; width: 18px; height: 18px; margin-right: 12px; border-radius: 3px;
+    background: var(--rose); transform: rotate(12deg); vertical-align: 4px; }
+  .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .carte { background: var(--carte); border: 1px solid var(--bord); border-radius: 16px; padding: 22px; }
+  .carte .ico { font-size: 30px; line-height: 1; }
+  .carte h3 { margin: 12px 0 6px; font-size: 19px; }
+  .carte p { margin: 0; color: var(--doux); font-size: 15.5px; }
+  .carte.jaune { border-top: 4px solid var(--jaune); } .carte.rose { border-top: 4px solid var(--rose); }
+  .carte.vert { border-top: 4px solid var(--vert); } .carte.cyan { border-top: 4px solid var(--cyan); }
+
+  .galerie { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .galerie figure { margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--bord); background: var(--carte); }
+  .galerie img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+  .galerie figcaption { padding: 10px 14px; font-size: 14.5px; color: var(--doux); }
+
+  ol.etapes { list-style: none; counter-reset: e; padding: 0; margin: 0; display: grid; gap: 12px; }
+  ol.etapes li { counter-increment: e; background: var(--carte); border: 1px solid var(--bord); border-radius: 14px;
+    padding: 16px 18px 16px 70px; position: relative; }
+  ol.etapes li::before { content: counter(e); position: absolute; left: 18px; top: 50%; transform: translateY(-50%) rotate(-6deg);
+    width: 38px; height: 38px; border-radius: 10px; background: var(--jaune); color: #111; font: 20px/38px Bungee, sans-serif; text-align: center; }
+  .note { margin-top: 14px; background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.35); border-radius: 12px;
+    padding: 14px 16px; font-size: 15px; color: var(--doux); }
+
+  .touches { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+  .touche { display: flex; align-items: center; gap: 14px; background: var(--carte); border: 1px solid var(--bord); border-radius: 14px; padding: 14px 16px; }
+  kbd { font: 18px/1 Bungee, sans-serif; background: #fff; color: #111; padding: 10px 12px; border-radius: 9px;
+    box-shadow: 0 4px 0 #9a9aa8; min-width: 54px; text-align: center; }
+  .touche span { color: var(--doux); font-size: 15px; } .touche b { color: #fff; display: block; font-size: 15.5px; }
+
+  details { background: var(--carte); border: 1px solid var(--bord); border-radius: 14px; padding: 4px 18px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 700; padding: 14px 0; }
+  details p { color: var(--doux); margin: 0 0 14px; }
+
+  footer { margin-top: 64px; padding: 34px 0 48px; border-top: 1px solid var(--bord); color: var(--doux); font-size: 14px; }
+  @media (max-width: 640px) {
+    .galerie { grid-template-columns: 1fr; }
+    header.hero { min-height: 78vh; }
+    .btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="images/rue.jpg" alt="Shibuya-cho dans Jet Set Radio, avec le patch 60 FPS">
+  <div class="hero-txt">
+    <span class="badge">PATCH GRATUIT · VERSION 1.0</span>
+    <h1>Jet Set Radio<br><span>60 FPS</span></h1>
+    <p class="accroche">Ride dans Tokyo-to deux fois plus fluide. Un seul clic pour installer, le jeu d'origine reste intact.</p>
+    <div class="boutons">
+      <a class="btn btn-principal" href="https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest">⬇ Télécharger l'installeur</a>
+      <a class="btn btn-second" href="#installer">Comment l'installer ?</a>
+    </div>
+    <p class="petit">Pour Jet Set Radio sur Steam (PC) · Windows</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="nouveautes">
+    <h2>Ce que ça change</h2>
+    <div class="grille">
+      <div class="carte jaune"><div class="ico">🎞️</div><h3>60 images par seconde</h3>
+        <p>Le jeu tourne à 30 FPS d'origine. Le patch fait calculer par le moteur une vraie image intermédiaire : persos, voitures et caméra bougent deux fois plus fluidement.</p></div>
+      <div class="carte rose"><div class="ico">🌀</div><h3>Flou de mouvement</h3>
+        <p>Un flou de caméra sur le décor quand elle tourne, comme au cinéma. Votre perso et les passants restent nets. Réglable en jeu, ou coupé.</p></div>
+      <div class="carte vert"><div class="ico">🔍</div><h3>Textures nettes</h3>
+        <p>Filtrage anisotrope x16 : les rues et les façades au loin ne scintillent plus quand la caméra bouge.</p></div>
+      <div class="carte cyan"><div class="ico">🏙️</div><h3>Ville complète</h3>
+        <p>Plus de bâtiments qui apparaissent d'un coup au loin ou sur les bords de l'écran.</p></div>
+      <div class="carte rose"><div class="ico">🎨</div><h3>Tags corrigés</h3>
+        <p>Fini le voile blanc qui effaçait une partie des graffitis selon l'angle de la caméra.</p></div>
+      <div class="carte jaune"><div class="ico">🛡️</div><h3>Sans risque</h3>
+        <p>Un seul fichier ajouté. Aucun fichier du jeu modifié, sauvegardes intactes, désinstallation en un clic.</p></div>
+    </div>
+  </section>
+
+  <section id="images">
+    <h2>En images</h2>
+    <div class="galerie">
+      <figure><img src="images/saut.jpg" alt="Saut au-dessus des toits" loading="lazy"><figcaption>Les figures en l'air, fluides de bout en bout.</figcaption></figure>
+      <figure><img src="images/tag.jpg" alt="Un tag en cours" loading="lazy"><figcaption>Les tags s'affichent en entier, sans voile blanc.</figcaption></figure>
+      <figure><img src="images/avenue.jpg" alt="Une avenue avec le flou de mouvement" loading="lazy"><figcaption>Le flou suit la caméra : le décor glisse, le perso reste net.</figcaption></figure>
+      <figure><img src="images/rue.jpg" alt="Une rue de Shibuya-cho" loading="lazy"><figcaption>Toute la ville reste affichée, jusqu'à l'horizon.</figcaption></figure>
+    </div>
+    <p class="petit">Captures du jeu en 1920×1080. Les images fixes ne montrent pas la fluidité : il faut le voir en mouvement !</p>
+  </section>
+
+  <section id="installer">
+    <h2>Installer en 1 minute</h2>
+    <ol class="etapes">
+      <li>Téléchargez <b>Installer-JSR-60-FPS-v1.0.exe</b> sur la <a href="https://github.com/yozencolere/JetSetRadio-60FPS/releases/latest">page de téléchargement</a>.</li>
+      <li>Fermez Jet Set Radio s'il est ouvert, puis lancez l'installeur.</li>
+      <li>Il trouve le jeu tout seul dans Steam. Cliquez sur <b>OK</b>.</li>
+      <li>Lancez le jeu normalement depuis Steam. C'est prêt !</li>
+    </ol>
+    <div class="note">
+      <b>Windows affiche « Windows a protégé votre ordinateur » ?</b> C'est normal pour un petit programme non signé :
+      cliquez sur <i>Informations complémentaires</i> puis <i>Exécuter quand même</i>.<br><br>
+      <b>Vous préférez faire à la main ?</b> Téléchargez le <code>.zip</code> et copiez <code>d3d9.dll</code> à côté de
+      <code>jetsetradio.exe</code> (dans Steam : clic droit sur le jeu → Gérer → Parcourir les fichiers locaux).
+    </div>
+  </section>
+
+  <section id="touches">
+    <h2>Les touches</h2>
+    <div class="touches">
+      <div class="touche"><kbd>F1</kbd><div><b>Sans flou</b><span>flou de mouvement coupé</span></div></div>
+      <div class="touche"><kbd>F2</kbd><div><b>Flou léger</b><span>juste une touche</span></div></div>
+      <div class="touche"><kbd>F3</kbd><div><b>Flou moyen</b><span>intermédiaire</span></div></div>
+      <div class="touche"><kbd>F4</kbd><div><b>Flou fort</b><span>réglage par défaut</span></div></div>
+      <div class="touche"><kbd>F8</kbd><div><b>Avant / après</b><span>coupe tout le patch pour comparer</span></div></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Questions</h2>
+    <details><summary>Est-ce que ça modifie mon jeu ou mes sauvegardes ?</summary>
+      <p>Non. Le patch est un seul fichier, <code>d3d9.dll</code>, que le jeu charge au démarrage. Rien d'autre n'est touché.</p></details>
+    <details><summary>Le jeu va-t-il plus vite ?</summary>
+      <p>Non, la vitesse de jeu reste exactement celle d'origine. Seul le nombre d'images affichées double.</p></details>
+    <details><summary>Comment le désinstaller ?</summary>
+      <p>Relancez l'installeur et choisissez <b>Non</b> (désinstaller), ou supprimez <code>d3d9.dll</code> du dossier du jeu.</p></details>
+    <details><summary>J'ai déjà un autre mod avec une d3d9.dll.</summary>
+      <p>L'installeur le met de côté et le remet en place si vous désinstallez. Les deux ne peuvent pas marcher en même temps.</p></details>
+    <details><summary>Le flou me donne mal au cœur.</summary>
+      <p>Appuyez sur <b>F2</b> pour un flou léger, ou <b>F1</b> pour le couper complètement. Les 60 FPS restent actifs.</p></details>
+    <details><summary>Et sur la version Dreamcast ou une autre version ?</summary>
+      <p>Le patch est fait pour la version Steam du jeu (portage PC de 2012) uniquement.</p></details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Code source et versions : <a href="https://github.com/yozencolere/JetSetRadio-60FPS">github.com/yozencolere/JetSetRadio-60FPS</a> · Licence MIT<br>
+    Jet Set Radio est une marque de SEGA. Projet de fan non affilié à SEGA ; aucun fichier du jeu n'est fourni, il faut posséder le jeu.
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+JET SET RADIO 60 FPS
+====================
+
+Mod pour Jet Set Radio (version Steam PC). Il s'installe sous la forme d'un seul fichier, d3d9.dll,
+placé à côté de jetsetradio.exe. Le jeu d'origine n'est pas modifié.
+
+Ce que fait le mod
+------------------
+- 60 images par seconde : une image intermédiaire est calculée par le moteur du jeu entre deux
+  images d'origine (positions, rotations et animations interpolées).
+- Flou de mouvement limité à la caméra : le décor fixe est flouté quand la caméra bouge ;
+  le personnage, les passants et les voitures restent nets.
+- Filtrage anisotrope x16 : plus de scintillement des textures au loin.
+- Corrections de défauts du jeu d'origine :
+  * voile blanc sur les tags selon l'angle de la caméra (ordre de dessin des couches du tag) ;
+  * bâtiments qui surgissent au loin ou sur les bords de l'écran (blocs de ville et angle de vue 4:3).
+
+Touches en jeu
+--------------
+  F1 : flou de mouvement coupé
+  F2 : flou léger
+  F3 : flou intermédiaire
+  F4 : flou fort (réglage par défaut)
+  F8 : couper / remettre tout le mod (pour comparer avec le jeu d'origine)
+
+Désinstallation
+---------------
+Relancez l'installeur et choisissez « Non » (désinstaller), ou supprimez simplement d3d9.dll
+dans le dossier du jeu. Si une autre d3d9.dll était présente avant l'installation, elle avait été
+renommée en d3d9.dll.avant_jsr60 et l'installeur la remet en place.
+
+Le mod écrit un petit journal technique, jsr60-log.txt, dans le dossier du jeu au démarrage.

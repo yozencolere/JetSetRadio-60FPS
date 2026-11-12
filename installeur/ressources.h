@@ -1,0 +1,3 @@
+#define IDR_DLL 101
+#define IDR_LISEZMOI 102
+#define IDI_ICONE 103

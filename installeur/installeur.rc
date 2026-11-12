@@ -1,0 +1,28 @@
+#include <windows.h>
+#include "ressources.h"
+
+IDR_DLL       RCDATA "..\\bin\\d3d9.dll"
+IDR_LISEZMOI  RCDATA "lisezmoi_utf8bom.txt"
+1 RT_MANIFEST "installeur.manifest"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEOS 0x40004
+ FILETYPE 0x1
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040c04b0"
+    BEGIN
+      VALUE "FileDescription", "Installeur Jet Set Radio 60 FPS"
+      VALUE "ProductName", "Jet Set Radio 60 FPS"
+      VALUE "FileVersion", "1.0"
+      VALUE "ProductVersion", "1.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x40c, 1200
+  END
+END

@@ -1,0 +1,11 @@
+bin/
+installeur/sortie/
+installeur/lisezmoi_utf8bom.txt
+*.obj
+*.res
+*.lib
+*.exp
+*.pdb
+__pycache__/
+jsr60-*.txt
+jsr60-*.png
