@@ -1087,8 +1087,16 @@ bool load_real() {
     return real_create != nullptr;
 }
 }
+// Le mod ne s'active que dans le jeu : d'autres programmes du dossier (jsrsetup.exe, les reglages) chargent aussi
+// cette d3d9.dll et n'ont pas le code du jeu aux adresses modifiees. Pour eux : simple relais vers le vrai DirectX.
+bool host_is_game() {
+    wchar_t p[MAX_PATH] = {}; GetModuleFileNameW(nullptr, p, MAX_PATH);
+    const wchar_t* n = wcsrchr(p, L'\\'); n = n ? n + 1 : p;
+    return _wcsicmp(n, L"jetsetradio.exe") == 0;
+}
 extern "C" IDirect3D9* WINAPI Direct3DCreate9(UINT sdk) {
     if (!load_real()) return nullptr;
+    if (!host_is_game()) return real_create(sdk);
     static bool once = false;
     if (!once) {
         once = true;
